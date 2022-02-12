@@ -8,7 +8,7 @@
 .endm
 ; example: RNDR x1
 
-.macro RNDRRS \register
+.macro RNDRRS register
     mrs    \register, S3_3_C2_C4_1
 .endm
 ; example: RNDRRS x1
