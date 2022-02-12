@@ -3,43 +3,12 @@
 ; Do they automatically use the vector registers??
 ; We'll just add a macro here to insert byte literals.
 
-.macro RNDR Xregister_in_hex
-    .word 0xD53B2400 | \Xregister_in_hex
+.macro RNDR register
+    mrs    \register, S3_3_C2_C4_0
 .endm
-; example: RNDR 0x14
-/* 
-opCode              
-0b110101010011
-then 
-op0	    op1	    CRn	    CRm	    op2
-0b11	0b011	0b0010	0b0100	0b000
+; example: RNDR x1
 
-and then following both of those:
-
-0bxxxx where xxxx is x0-31
-
-op0=3 is equivalent to o0=1, final form:
-
-0xD53B2400 | x[0..31]
-
-*/
-.macro RNDRRS Xregister_in_hex
-    .word 0xD53D9000 | \Xregister_in_hex
+.macro RNDRRS \register
+    mrs    \register, S3_3_C2_C4_1
 .endm
-; example: RNDRRS 0x14
-/* 
-opCode              
-0b1101 0101 0011
-then 
-op0	    op1	    CRn	    CRm	    op2
-0b11	0b011	0b0010	0b0000	0b000
-
-and then following both of those:
-
-0bxxxx where xxxx is x0-31
-
-op0=3 is equivalent to o0=1, final form:
-
-0xD53D9000 | x[0..31]
-
-*/
+; example: RNDRRS x1
