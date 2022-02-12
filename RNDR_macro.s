@@ -5,7 +5,7 @@
 .macro RNDR Xregister_in_hex
     .dword 0xD53B2400 | \Xregister_in_hex
 .endm
-RNDR 0x14
+; example: RNDR 0x14
 /* 
 opCode              
 0b110101010011
