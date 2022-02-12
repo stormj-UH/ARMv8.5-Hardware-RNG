@@ -4,7 +4,7 @@
 ; We'll just add a macro here to insert byte literals.
 
 .macro RNDR Xregister_in_hex
-    .dword 0xD53B2400 | \Xregister_in_hex
+    .word 0xD53B2400 | \Xregister_in_hex
 .endm
 ; example: RNDR 0x14
 /* 
@@ -24,7 +24,7 @@ op0=3 is equivalent to o0=1, final form:
 
 */
 .macro RNDRRS Xregister_in_hex
-    .dword 0xD53D9000 | \Xregister_in_hex
+    .word 0xD53D9000 | \Xregister_in_hex
 .endm
 ; example: RNDRRS 0x14
 /* 
